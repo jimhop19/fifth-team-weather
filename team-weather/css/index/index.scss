@@ -1,0 +1,118 @@
+@import url(../../css/reset.css);
+@import url(../../css/common.css);
+body{
+    background-color: var(--background-color-lightgray);
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 100px;   
+}
+.textSection{    
+    h1{
+        text-align: right;
+        color: var(--surface-color-darkbrown);
+        font-size: 70px;
+        font-weight: 800;
+        margin-top: 50px;
+        margin-bottom: 70px;
+    }
+    .functionSelect{
+        margin-bottom: 50px;
+        text-align: right;
+        label{            
+            input[type=radio]{                
+                position: absolute;
+                opacity: 0;
+            }
+            span{
+                padding: 10px;
+                font-size: 20px;
+                color: var(--text-color-white);
+                background-color: var(--surface-color-darkbrown);
+                border-radius: 10px;                       
+            }
+            input[type=radio] + span{
+                cursor: pointer;
+            }         
+            input[type=radio]:checked + span{
+                color: var(--surface-color-darkbrown);
+                background-color: var(--text-color-white);
+                border: 1px solid var(--surface-color-brown);  
+                box-shadow: -2px 2px var(--surface-color-brown);              
+            }
+        }
+    }
+    .information{
+        width: 500px;
+        .contentBar{
+            border-radius: 20px;
+            padding: 40px 50px;
+            margin: -15px 0;
+            font-size: 30px;
+            position: relative;
+        }
+        .countyName{
+            background-color: var(--text-color-white);
+            z-index: 3;
+        }
+        .weather{
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--surface-color-lightbrown);     
+            z-index: 2;
+        }
+        .temperatureAndRaining{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--surface-color-brown);     
+            z-index: 1;
+            .temperature{
+                display: flex;
+                align-items:center;
+                span{
+                    color: var(--text-color-white);
+                }
+                #lowestTemperature{
+                    width: 36.8px;
+                }
+                #highestTemperature{
+                    width: 36.8px;
+                }
+            }
+            .raining{
+                display: flex;                                
+                align-items: center;
+                h4{
+                    width: 36.8px;
+                    text-align: right;
+                }                        
+                span{
+                    color: var(--text-color-white);
+                }
+            }
+            img{
+                width: 60px;                
+                color: var(--text-color-white);
+                margin-right: 10px;                
+            }        
+            h4{
+                color:var(--text-color-white);
+            }            
+        }
+    }
+}
+.mapSection{
+    background-color: var(--surface-color-darkbrown);
+    border-radius: 50px;
+    svg{
+        padding: 50px;        
+    }
+    .county {
+        fill: var(--background-color-gray);
+        stroke:var(--text-color-white);
+        stroke-width: 0.4px;
+        &:hover{
+            fill: var(--text-color-white);
+        }
+    }
+}

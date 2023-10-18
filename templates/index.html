@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>天氣地圖</title>	
+	<link rel="stylesheet"  type="text/css" href="css/index/index.css"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />   	
+	<script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+	<div class="mapSection">
+		<svg width="500" height="500"></svg>	
+	</div>
+	<div class="textSection">
+		<h1>台灣天氣地圖</h1>
+		<div class="functionSelect">
+			<label>
+				<input type="radio" name="functionButton" value="today" checked>
+				<span>今日天氣</span>
+			</label>
+			<label>
+				<input type="radio" name="functionButton" value="hour">				
+				<span>每小時天氣</span>
+			</label>
+			<label>
+				<input type="radio" name="functionButton" value="notification">	
+				<span>設定通知</span>
+			</label>
+			<label >
+				<input type="radio" name="functionButton" value="filter">	
+				<span>篩選</span>
+			</label>
+		</div>
+		<div class="information">
+			<div class="countyName contentBar">
+				<h2 id="countyName"></h2>			
+			</div>
+			<div class="weather contentBar">
+				<h4 id="weatherCondition"></h4>
+				<h4 id="comfort"></h4>
+			</div>
+			<div class="temperatureAndRaining contentBar">
+				<div class="temperature">
+					<img src="image/temperature-svgrepo-com-white.svg" alt="">
+					<span id="lowestTemperature"></span><span>-</span><span id="highestTemperature"></span><span>°c</span>
+				</div>
+				<div class="raining">
+					<img src="image/rain-alt-svgrepo-com-white.svg" alt="">				
+					<h4 id="raining"></h4><span>%</span>			
+				</div>			
+			</div>
+		</div>	
+	</div>	
+</body>
+</html>
