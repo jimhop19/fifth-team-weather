@@ -1,15 +1,5 @@
-// if ("geolocation" in navigator) {
-//     console.log("可以取得位置")
-//     navigator.geolocation.getCurrentPosition(function (position) {
-//       var latitude = position.coords.latitude;
-//       var longitude = position.coords.longitude;
-//       console.log("經度：" + latitude);
-//       console.log("緯度：" + longitude);
-  
-//     });
-//   } else {
-//     console.log("不支援gps");
-//   }
+import { switchWeatherData } from './switchWeatherData';
+
   async function getWeather() {
     if ("geolocation" in navigator) {
         try {
@@ -38,7 +28,7 @@
             });
 
             const data = await response.json();
-
+            switchWeatherData(data);
             console.log('天氣數據：', data);
         } catch (error) {
             console.error('獲取位置失敗：', error);
