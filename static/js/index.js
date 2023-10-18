@@ -65,3 +65,4 @@ function functionCheck(inputData){
         fetchTodayWeatherData(inputData)
     }
 }
+export { switchWeatherData };
