@@ -13,7 +13,7 @@ webhook_url = "https://discord.com/api/webhooks/1162404320399085690/y6pNTIyURc4-
 
 @app.route("/")
 def index():
-	return render_template("index.html")
+	return render_template("subscribe.html")
 
 @app.route("/subscribe", methods=["POST"])
 def set_city():
