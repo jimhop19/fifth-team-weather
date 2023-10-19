@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>雨量觀測</title>
+	<!-- 建立整體樣式指導：基礎字型、字體、基底色、標題、段落樣式等等 -->
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<!-- 建立雨量觀測部份的樣式 -->
+	<link rel="stylesheet" type="text/css" href="css/raining.css" />
+</head>
+<body>
+	<!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
+	<h3>雨量觀測</h3>
+	<div id="raining"></div>
+
+	<!--
+		完成各縣市氣象預報功能
+		請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
+		https://opendata.cwb.gov.tw/dist/opendata-swagger.html?urls.primaryName=openAPI#/
+	-->
+	<h3>各縣市最新氣象預報 ( 文字描述、低溫、高溫 )</h3>
+	<div id="weather"></div>
+	<label for="region">選擇縣市：</label>
+    <select id="region">
+        <option value="嘉義縣">嘉義縣</option>
+        <option value="新北市">新北市</option>
+        <option value="嘉義市">嘉義市</option>
+        <option value="新竹縣">新竹縣</option>
+        <option value="新竹市">新竹市</option>
+        <option value="臺北市">臺北市</option>
+        <option value="臺南市">臺南市</option>
+        <option value="宜蘭縣">宜蘭縣</option>
+        <option value="苗栗縣">苗栗縣</option>
+        <option value="雲林縣">雲林縣</option>
+        <option value="花蓮縣">花蓮縣</option>
+        <option value="臺中市">臺中市</option>
+        <option value="臺東縣">臺東縣</option>
+        <option value="桃園市">桃園市</option>
+        <option value="南投縣">南投縣</option>
+        <option value="高雄市">高雄市</option>
+        <option value="金門縣">金門縣</option>
+        <option value="屏東縣">屏東縣</option>
+        <option value="基隆市">基隆市</option>
+        <option value="澎湖縣">澎湖縣</option>
+        <option value="彰化縣">彰化縣</option>
+        <option value="連江縣">連江縣</option>
+    </select>
+	<button id="subscribeBtn">訂閱</button>
+	<script>
+		 document.getElementById("subscribeBtn").addEventListener("click", function() {
+            const selectedRegion = document.getElementById("region").value;
+            
+            fetch("/subscribe", {
+                method: "POST",
+                body: JSON.stringify({ region: selectedRegion }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error("訂閱失敗：", error);
+            });
+        });
+		// 以下是我申請的 KEY 請使用無所謂，你也可以自己去中央氣象局網站申請一個
+		// https://opendata.cwb.gov.tw/index
+		const CWB_API_KEY="CWB-25142137-EFE4-4F9E-9B46-D41BF5BD73D5";
+	</script>
+	<script src="js/raining.js"></script>
+</body>
+</html>
