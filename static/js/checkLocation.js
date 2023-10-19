@@ -1,4 +1,4 @@
-import { switchWeatherData } from './switchWeatherData';
+import { switchWeatherData , getChart } from './index.js';
 
   async function getWeather() {
     if ("geolocation" in navigator) {
@@ -29,6 +29,7 @@ import { switchWeatherData } from './switchWeatherData';
 
             const data = await response.json();
             switchWeatherData(data);
+            getChart(data);
             console.log('天氣數據：', data);
         } catch (error) {
             console.error('獲取位置失敗：', error);
