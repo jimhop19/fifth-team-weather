@@ -1,0 +1,116 @@
+@import url(../../css/reset.css);
+@import url(../../css/common.css);
+body {
+  background-color: var(--background-color-lightgray);
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 100px;
+}
+
+.textSection h1 {
+  text-align: right;
+  color: var(--surface-color-darkbrown);
+  font-size: 70px;
+  font-weight: 800;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+.textSection .functionSelect {
+  margin-bottom: 50px;
+  text-align: right;
+}
+.textSection .functionSelect label input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.textSection .functionSelect label span {
+  padding: 10px;
+  font-size: 20px;
+  color: var(--text-color-white);
+  background-color: var(--surface-color-darkbrown);
+  border-radius: 10px;
+}
+.textSection .functionSelect label input[type=radio] + span {
+  cursor: pointer;
+}
+.textSection .functionSelect label input[type=radio]:checked + span {
+  color: var(--surface-color-darkbrown);
+  background-color: var(--text-color-white);
+  border: 1px solid var(--surface-color-brown);
+  box-shadow: -2px 2px var(--surface-color-brown);
+}
+.textSection .information {
+  width: 500px;
+}
+.textSection .information .contentBar {
+  border-radius: 20px;
+  padding: 40px 50px;
+  margin: -15px 0;
+  font-size: 30px;
+  position: relative;
+}
+.textSection .information .countyName {
+  background-color: var(--text-color-white);
+  z-index: 3;
+}
+.textSection .information .weather {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--surface-color-lightbrown);
+  z-index: 2;
+}
+.textSection .information .temperatureAndRaining {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--surface-color-brown);
+  z-index: 1;
+}
+.textSection .information .temperatureAndRaining .temperature {
+  display: flex;
+  align-items: center;
+}
+.textSection .information .temperatureAndRaining .temperature span {
+  color: var(--text-color-white);
+}
+.textSection .information .temperatureAndRaining .temperature #lowestTemperature {
+  width: 36.8px;
+}
+.textSection .information .temperatureAndRaining .temperature #highestTemperature {
+  width: 36.8px;
+}
+.textSection .information .temperatureAndRaining .raining {
+  display: flex;
+  align-items: center;
+}
+.textSection .information .temperatureAndRaining .raining h4 {
+  width: 36.8px;
+  text-align: right;
+}
+.textSection .information .temperatureAndRaining .raining span {
+  color: var(--text-color-white);
+}
+.textSection .information .temperatureAndRaining img {
+  width: 60px;
+  color: var(--text-color-white);
+  margin-right: 10px;
+}
+.textSection .information .temperatureAndRaining h4 {
+  color: var(--text-color-white);
+}
+
+.mapSection {
+  background-color: var(--surface-color-darkbrown);
+  border-radius: 50px;
+}
+.mapSection svg {
+  padding: 50px;
+}
+.mapSection .county {
+  fill: var(--background-color-gray);
+  stroke: var(--text-color-white);
+  stroke-width: 0.4px;
+}
+.mapSection .county:hover {
+  fill: var(--text-color-white);
+}/*# sourceMappingURL=index.css.map */
