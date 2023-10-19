@@ -1,12 +1,40 @@
 @import url(../../css/reset.css);
 @import url(../../css/common.css);
 body {
-  background-color: var(--background-color-lightgray);
   display: flex;
-  justify-content: space-between;
-  margin: 50px 100px;
+  justify-content: center;
+  background-color: var(--background-color-lightgray);
 }
 
+.main {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin: 50px 100px;
+}
+@media (max-width: 1250px) {
+  .main {
+    width: 90vw;
+  }
+}
+@media (max-width: 900px) {
+  .main {
+    width: 700px;
+    display: block;
+  }
+}
+
+@media (max-width: 1250px) {
+  .textSection {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection {
+    margin-right: 40px;
+  }
+}
 .textSection h1 {
   text-align: right;
   color: var(--surface-color-darkbrown);
@@ -15,9 +43,25 @@ body {
   margin-top: 50px;
   margin-bottom: 70px;
 }
+@media (max-width: 1250px) {
+  .textSection h1 {
+    font-size: 50px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection h1 {
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
 .textSection .functionSelect {
   margin-bottom: 50px;
   text-align: right;
+}
+.textSection .functionSelect label {
+  margin-left: 6px;
 }
 .textSection .functionSelect label input[type=radio] {
   position: absolute;
@@ -30,6 +74,11 @@ body {
   background-color: var(--surface-color-darkbrown);
   border-radius: 10px;
 }
+@media (max-width: 430px) {
+  .textSection .functionSelect label span {
+    font-size: 10px;
+  }
+}
 .textSection .functionSelect label input[type=radio] + span {
   cursor: pointer;
 }
@@ -39,72 +88,238 @@ body {
   border: 1px solid var(--surface-color-brown);
   box-shadow: -2px 2px var(--surface-color-brown);
 }
-.textSection .information {
+@media (max-width: 900px) {
+  .textSection .informationSection {
+    margin-left: 200px;
+  }
+}
+.textSection .todayInformation {
   width: 500px;
 }
-.textSection .information .contentBar {
+@media (max-width: 900px) {
+  .textSection .todayInformation {
+    width: 400px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection .todayInformation {
+    width: 100vw;
+  }
+}
+.textSection .todayInformation .contentBar {
   border-radius: 20px;
   padding: 40px 50px;
   margin: -15px 0;
   font-size: 30px;
   position: relative;
 }
-.textSection .information .countyName {
+@media (max-width: 430px) {
+  .textSection .todayInformation .contentBar {
+    font-size: 20px;
+  }
+}
+.textSection .todayInformation .countyName {
   background-color: var(--text-color-white);
   z-index: 3;
 }
-.textSection .information .weather {
+.textSection .todayInformation .weather {
   display: flex;
   justify-content: space-between;
   background-color: var(--surface-color-lightbrown);
   z-index: 2;
 }
-.textSection .information .temperatureAndRaining {
+.textSection .todayInformation .temperatureAndRaining {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--surface-color-brown);
   z-index: 1;
 }
-.textSection .information .temperatureAndRaining .temperature {
+.textSection .todayInformation .temperatureAndRaining .temperature {
   display: flex;
   align-items: center;
 }
-.textSection .information .temperatureAndRaining .temperature span {
+.textSection .todayInformation .temperatureAndRaining .temperature span {
   color: var(--text-color-white);
 }
-.textSection .information .temperatureAndRaining .temperature #lowestTemperature {
+.textSection .todayInformation .temperatureAndRaining .temperature #lowestTemperature {
   width: 36.8px;
 }
-.textSection .information .temperatureAndRaining .temperature #highestTemperature {
+@media (max-width: 430px) {
+  .textSection .todayInformation .temperatureAndRaining .temperature #lowestTemperature {
+    width: 10px;
+  }
+}
+.textSection .todayInformation .temperatureAndRaining .temperature #highestTemperature {
   width: 36.8px;
 }
-.textSection .information .temperatureAndRaining .raining {
+@media (max-width: 430px) {
+  .textSection .todayInformation .temperatureAndRaining .temperature #highestTemperature {
+    width: 10px;
+  }
+}
+.textSection .todayInformation .temperatureAndRaining .raining {
   display: flex;
   align-items: center;
 }
-.textSection .information .temperatureAndRaining .raining h4 {
+.textSection .todayInformation .temperatureAndRaining .raining h4 {
   width: 36.8px;
   text-align: right;
 }
-.textSection .information .temperatureAndRaining .raining span {
+@media (max-width: 430px) {
+  .textSection .todayInformation .temperatureAndRaining .raining h4 {
+    width: 10px;
+  }
+}
+.textSection .todayInformation .temperatureAndRaining .raining span {
   color: var(--text-color-white);
 }
-.textSection .information .temperatureAndRaining img {
+.textSection .todayInformation .temperatureAndRaining img {
   width: 60px;
   color: var(--text-color-white);
   margin-right: 10px;
 }
-.textSection .information .temperatureAndRaining h4 {
+@media (max-width: 430px) {
+  .textSection .todayInformation .temperatureAndRaining img {
+    width: 15px;
+  }
+}
+.textSection .todayInformation .temperatureAndRaining h4 {
   color: var(--text-color-white);
+}
+.textSection .chartInformation {
+  width: 500px;
+}
+@media (max-width: 900px) {
+  .textSection .chartInformation {
+    width: 400px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection .chartInformation {
+    width: 100vw;
+  }
+}
+.textSection .chartInformation .locationName {
+  display: none;
+}
+.textSection .chartInformation .chartAppear {
+  display: block;
+}
+.textSection .remindInformation {
+  display: none;
+  width: 500px;
+}
+@media (max-width: 900px) {
+  .textSection .remindInformation {
+    width: 400px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation {
+    width: 100vw;
+  }
+}
+.textSection .remindInformation .contentBar {
+  border-radius: 20px;
+  padding: 30px 50px;
+  margin: -15px 0;
+  font-size: 20px;
+  position: relative;
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation .contentBar {
+    font-size: 20px;
+    padding: 30px;
+  }
+}
+.textSection .remindInformation .cityNameBar {
+  background-color: var(--text-color-white);
+  z-index: 2;
+}
+.textSection .remindInformation .cityNameBar select {
+  font-size: 30px;
+  padding: 10px 20px;
+  transform: translateY(3px);
+  border: var(--text-color-white);
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation .cityNameBar select {
+    font-size: 20px;
+  }
+}
+.textSection .remindInformation .usernameBar {
+  background-color: var(--surface-color-lightbrown);
+  z-index: 1;
+}
+.textSection .remindInformation .usernameBar input {
+  width: 180px;
+  transform: translateY(5px);
+  font-size: 30px;
+  padding: 10px 20px;
+}
+@media (max-width: 900px) {
+  .textSection .remindInformation .usernameBar input {
+    width: 100px;
+  }
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation .usernameBar input {
+    width: 70px;
+    font-size: 15px;
+  }
+}
+.textSection .remindInformation .buttonGroup {
+  margin-top: 35px;
+  display: flex;
+}
+.textSection .remindInformation .buttonGroup .submitButton {
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-size: 20px;
+  background-color: var(--surface-color-brown);
+  color: var(--text-color-white);
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation .buttonGroup .submitButton {
+    padding: 10px 15px;
+  }
+}
+.textSection .remindInformation .buttonGroup .successMessage {
+  font-size: 20px;
+  padding: 20px 30px;
+  color: var(--surface-color-darkbrown);
+}
+@media (max-width: 430px) {
+  .textSection .remindInformation .buttonGroup .successMessage {
+    padding: 10px 15px;
+  }
 }
 
 .mapSection {
   background-color: var(--surface-color-darkbrown);
   border-radius: 50px;
 }
+@media (max-width: 900px) {
+  .mapSection {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 430px) {
+  .mapSection {
+    transform: scale(0.6) translate(130px, -200px);
+  }
+}
 .mapSection svg {
+  width: 500px;
+  height: 500px;
   padding: 50px;
+}
+@media (max-width: 430px) {
+  .mapSection svg {
+    transform: scale(0.6);
+  }
 }
 .mapSection .county {
   fill: var(--background-color-gray);

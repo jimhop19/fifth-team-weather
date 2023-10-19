@@ -1,12 +1,31 @@
 @import url(../../css/reset.css);
 @import url(../../css/common.css);
 body{
+    display: flex;
+    justify-content: center;
     background-color: var(--background-color-lightgray);
+}
+.main{
+    width: 1200px;
     display: flex;
     justify-content: space-between;
-    margin: 50px 100px;   
+    flex-direction: row-reverse;
+    margin: 50px 100px;    
+    @media (max-width:1250px) {
+        width: 90vw
+    }
+    @media (max-width:900px) {
+        width: 700px;
+        display: block;
+    }    
 }
-.textSection{    
+.textSection{
+    @media (max-width:1250px) {
+        padding-left: 20px;
+    }
+    @media (max-width:430px) {            
+        margin-right: 40px;
+    }        
     h1{
         text-align: right;
         color: var(--surface-color-darkbrown);
@@ -14,11 +33,21 @@ body{
         font-weight: 800;
         margin-top: 50px;
         margin-bottom: 70px;
+        @media (max-width:1250px) {
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+        @media (max-width:430px) {            
+            font-size: 50px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }    
     }
     .functionSelect{
         margin-bottom: 50px;
         text-align: right;
-        label{            
+        label{
+            margin-left: 6px;
             input[type=radio]{                
                 position: absolute;
                 opacity: 0;
@@ -28,7 +57,10 @@ body{
                 font-size: 20px;
                 color: var(--text-color-white);
                 background-color: var(--surface-color-darkbrown);
-                border-radius: 10px;                       
+                border-radius: 10px;
+                @media (max-width:430px) {            
+                    font-size: 10px;
+                }                          
             }
             input[type=radio] + span{
                 cursor: pointer;
@@ -41,14 +73,28 @@ body{
             }
         }
     }
-    .information{
-        width: 500px;
+    .informationSection{
+        @media (max-width:900px) {                        
+            margin-left: 200px;
+        }
+    }
+    .todayInformation{
+        width: 500px;        
+        @media (max-width:900px) {            
+            width: 400px;
+        }
+        @media (max-width:430px) {            
+            width: 100vw;
+        }  
         .contentBar{
             border-radius: 20px;
             padding: 40px 50px;
             margin: -15px 0;
             font-size: 30px;
             position: relative;
+            @media (max-width:430px) {            
+                font-size: 20px;
+            }
         }
         .countyName{
             background-color: var(--text-color-white);
@@ -74,9 +120,15 @@ body{
                 }
                 #lowestTemperature{
                     width: 36.8px;
+                    @media (max-width:430px) {            
+                        width: 10px;      
+                    }
                 }
                 #highestTemperature{
                     width: 36.8px;
+                    @media (max-width:430px) {            
+                        width: 10px;      
+                    }
                 }
             }
             .raining{
@@ -85,6 +137,9 @@ body{
                 h4{
                     width: 36.8px;
                     text-align: right;
+                    @media (max-width:430px) {            
+                        width: 10px;      
+                    }
                 }                        
                 span{
                     color: var(--text-color-white);
@@ -93,19 +148,122 @@ body{
             img{
                 width: 60px;                
                 color: var(--text-color-white);
-                margin-right: 10px;                
+                margin-right: 10px;
+                @media (max-width:430px) {            
+                    width: 15px;      
+                }             
             }        
             h4{
                 color:var(--text-color-white);
             }            
         }
     }
+    .chartInformation{
+        width: 500px;
+        @media (max-width:900px) {            
+            width: 400px;
+        }
+        @media (max-width:430px) {            
+            width: 100vw;
+        }     
+        .locationName{
+            display: none;
+        }
+        .chartAppear{
+            display: block;
+        }
+    }
+    .remindInformation{
+        display: none;
+        width: 500px;
+        @media (max-width:900px) {            
+            width: 400px;
+        }
+        @media (max-width:430px) {            
+            width: 100vw;
+        }
+        .contentBar{
+            border-radius: 20px;
+            padding: 30px 50px;
+            margin: -15px 0;
+            font-size: 20px;
+            position: relative;
+            @media (max-width:430px) {            
+                font-size: 20px;
+                padding: 30px;
+            }
+        }
+        .cityNameBar{
+            background-color: var(--text-color-white);
+            z-index: 2;
+            select{                
+                font-size: 30px;
+                padding: 10px 20px;
+                transform: translateY(3px);
+                border: var(--text-color-white);
+                @media (max-width:430px) {            
+                    font-size: 20px;
+                }
+            }
+        }
+        .usernameBar{
+            background-color: var(--surface-color-lightbrown);
+            z-index: 1;
+            input{
+                width: 180px;
+                transform: translateY(5px);
+                font-size: 30px;
+                padding: 10px 20px;
+                @media (max-width:900px) {            
+                    width: 100px;
+                }
+                @media (max-width:430px) {            
+                    width: 70px;
+                    font-size: 15px;
+                }
+            }
+        }
+        .buttonGroup{
+            margin-top: 35px;
+            display: flex;            
+            .submitButton{
+                margin-right: 10px;
+                border-radius: 10px;
+                padding: 20px 30px;
+                font-size: 20px;
+                background-color: var(--surface-color-brown);
+                color: var(--text-color-white);
+                @media (max-width:430px) {            
+                    padding: 10px 15px;
+                }
+            }
+            .successMessage{
+                font-size: 20px;
+                padding: 20px 30px;
+                color: var(--surface-color-darkbrown);
+                @media (max-width:430px) {            
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
 }
 .mapSection{
     background-color: var(--surface-color-darkbrown);
     border-radius: 50px;
+    @media (max-width:900px) {
+        margin-top: 50px;
+    }
+    @media (max-width:430px) {            
+        transform: scale(0.6) translate(130px,-200px);        
+    }
     svg{
-        padding: 50px;        
+        width: 500px;
+        height: 500px;
+        padding: 50px;
+        @media (max-width:430px) {            
+            transform: scale(0.6);
+        }       
     }
     .county {
         fill: var(--background-color-gray);

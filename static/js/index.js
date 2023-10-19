@@ -5,7 +5,7 @@ const g = svg.append("g");
 let projectmethod = d3.geoMercator().center([122, 23.6]).scale(7000);
 let pathGenerator = d3.geoPath().projection(projectmethod);
 
-d3.json("./data/COUNTY_MOI_1090820_topo.json")
+d3.json("static/data/COUNTY_MOI_1090820_topo.json")
   .then(data => {     
     const geometries = topojson.feature(data, data.objects.COUNTY_MOI_1090820)     
     g.append("path")
@@ -18,10 +18,40 @@ d3.json("./data/COUNTY_MOI_1090820_topo.json")
   })
   .then(()=>{
       const county = document.querySelectorAll(".county")
-      county.forEach(e => e.addEventListener("mouseenter",() => functionCheck(e.id)));
-      fetchTodayWeatherData("臺北市")
+      county.forEach(e => e.addEventListener("mouseenter",() => functionCheck(e.id)));      
   })
+//check and swith fuction
+function functionCheck(inputData){
+    const check = document.querySelector("input:checked")    
+    if (check.value === "today"){
+        fetchTodayWeatherData(inputData)
+    }else if (check.value === "chart"){
+        getChart(inputData)        
+    }
+}
+//while clicking function button, show correspond information block
+const functionButton = document.querySelectorAll("input[name=functionButton]")
+functionButton.forEach(e => e.addEventListener("click",() => {
+    console.log(e.value)
+    const informationSection = document.querySelector(".informationSection")        
+    for(const child of informationSection.children){
+        child.style.display = "none"
+    }
+    if(e.value === "today"){
+        const todayInformation = document.querySelector(".todayInformation")
+        todayInformation.style.display = "block"
+    }
+    if(e.value === "chart"){
+        const chartInformation = document.querySelector(".chartInformation")
+        chartInformation.style.display = "block"
+    }
+    if(e.value === "notification"){
+        const remindInformation = document.querySelector(".remindInformation")
+        remindInformation.style.display = "block"
+    }
+}))
 
+//daily weather part
 function fetchTodayWeatherData(inputString){    
     const countyName = document.getElementById("countyName");
     countyName.textContent = inputString;    
@@ -55,14 +85,61 @@ function switchWeatherData(input){
     const highestTemperature = document.getElementById("highestTemperature");
     highestTemperature.textContent = highestTemperatureData;
 }
-//show correspond information
-const functionButton = document.querySelectorAll("input[name=functionButton]")
-functionButton.forEach(e => e.addEventListener("click",() => {console.log(e.value)}))
-//check and swith fuction
-function functionCheck(inputData){
-    const check = document.querySelector("input:checked")    
-    if (check.value === "today"){
-        fetchTodayWeatherData(inputData)
-    }
+
+//chart part
+function getChart(countySting){
+    //change county name
+    const countyName = document.getElementById("countyName");
+    countyName.textContent = countySting;  
+    //change chart
+    const clearCurrentChart = document.querySelectorAll(".locationName")
+    clearCurrentChart.forEach( e => { e.classList.remove("chartAppear")})
+    let chartID = "chart"+countySting
+    const chartInformation = document.getElementById(chartID)
+    chartInformation.classList.add("chartAppear")
 }
-export { switchWeatherData };
+
+//remind part
+const remindButton = document.getElementById("remindButton");
+const turnoffButton = document.getElementById("turnoffButton");
+const successMessage = document.getElementById("successMessage");
+remindButton.addEventListener("click",remind);
+turnoffButton.addEventListener("click",turnoff);
+function remind(){
+    let username=document.getElementById("username").value;
+    let cityselect=document.getElementById("city").value;
+    let url = `/api/remind?username=${username}&cityselect=${cityselect}`;
+    fetch(url, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+        showSuccessMessage(data.message)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function turnoff(){
+
+    let url = `/api/turnoff`;
+    fetch(url, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+        showSuccessMessage(data.message)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function showSuccessMessage(result){
+    successMessage.textContent = result
+}
+
+export { switchWeatherData , getChart };
