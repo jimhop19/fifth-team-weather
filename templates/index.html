@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>天氣地圖</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index/index.css')}}" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />   	
+	<script src="https://unpkg.com/d3@5.6.0/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.js"></script>
+    <script type = "module" src="{{ url_for('static', filename='js/index.js')}}" defer></script>
+</head>
+<body>
+	<div class="main">		
+		<div class="textSection">
+			<h1>台灣天氣地圖</h1>
+			<div class="functionSelect">
+				<label>
+					<input type="radio" name="functionButton" value="today" checked>
+					<span>今日天氣</span>
+				</label>
+				<label>
+					<input type="radio" name="functionButton" value="chart">				
+					<span>溫度變化圖</span>
+				</label>
+				<label>
+					<input type="radio" name="functionButton" value="notification">	
+					<span>設定通知</span>
+				</label>			
+			</div>
+			<div class="informationSection">
+				<div class="todayInformation">
+					<div class="countyName contentBar">
+						<h2 id="countyName"></h2>			
+					</div>
+					<div class="weather contentBar">
+						<h4 id="weatherCondition"></h4>
+						<h4 id="comfort"></h4>
+					</div>
+					<div class="temperatureAndRaining contentBar">
+						<div class="temperature">
+							<img src="{{ url_for('static', filename='image/temperature-svgrepo-com-white.svg') }}" alt="">
+							<span id="lowestTemperature"></span><span>-</span><span id="highestTemperature"></span><span>°c</span>
+						</div>
+						<div class="raining">
+							<img src="{{ url_for('static', filename='image/rain-alt-svgrepo-com-white.svg') }}" alt="">
+							<h4 id="raining"></h4><span>%</span>			
+						</div>			
+					</div>
+				</div>
+				<div class="chartInformation" id="chartInformation"></div>
+				<div class="remindInformation">
+					<div class="cityNameBar contentBar">					
+						<label for="">選擇縣市：</label>
+						<select id="city">
+							<option value="" disabled selected></option>
+							<option value="嘉義縣">嘉義縣</option>
+							<option value="新北市">新北市</option>
+							<option value="嘉義市">嘉義市</option>
+							<option value="新竹縣">新竹縣</option>
+							<option value="新竹市">新竹市</option>
+							<option value="臺北市">臺北市</option>
+							<option value="臺南市">臺南市</option>
+							<option value="宜蘭縣">宜蘭縣</option>
+							<option value="苗栗縣">苗栗縣</option>
+							<option value="雲林縣">雲林縣</option>
+							<option value="花蓮縣">花蓮縣</option>
+							<option value="臺中市">臺中市</option>
+							<option value="臺東縣">臺東縣</option>
+							<option value="桃園市">桃園市</option>
+							<option value="南投縣">南投縣</option>
+							<option value="高雄市">高雄市</option>
+							<option value="金門縣">金門縣</option>
+							<option value="屏東縣">屏東縣</option>
+							<option value="基隆市">基隆市</option>
+							<option value="澎湖縣">澎湖縣</option>
+							<option value="彰化縣">彰化縣</option>
+							<option value="連江縣">連江縣</option>
+						</select>
+					</div>
+					<div class="usernameBar contentBar">					
+						<label for="">輸入暱稱：</label>
+						<input type="text" id = "username">
+					</div>
+					<div class="buttonGroup">
+						<div class="submitButton" id="remindButton">開啟提醒</div>
+						<div class="submitButton" id="turnoffButton">關閉通知</div>
+						<p id="successMessage" class="successMessage"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mapSection">
+			<svg ></svg>	
+		</div>	
+	</div>
+	<script type = "module" src="{{ url_for('static', filename='js/checkLocation.js')}}" defer></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+	<script src="{{ url_for('static',filename='js/weather.js')}}"></script>
+</body>
+</html>

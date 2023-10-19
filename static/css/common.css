@@ -1,0 +1,16 @@
+:root{
+	--background-color-lightgray:#f4f3f3;
+	--background-color-gray:#c4bbb5;
+	--surface-color-lightbrown:#9e8975;
+	--surface-color-brown:#c08041;
+	--surface-color-darkbrown:#382c22;
+	--text-color-black:#000000;
+	--text-color-white:#ffffff;
+}
+@font-face {
+	font-family: huninn;
+	src: url(../data/jf-openhuninn-2.0.ttf) format('truetype');;
+}
+body{
+	font-family: huninn , sans-serif;
+}
