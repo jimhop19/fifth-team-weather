@@ -2,11 +2,16 @@
 
 組員分工方式:
 
-JIMMY:
+JIMMY: 
+
 PETER:
+
 JACKY:
-JASON:
+
+JASON: 設定remind功能，EC2部署
+
 鴻志:
+
 
 
 
