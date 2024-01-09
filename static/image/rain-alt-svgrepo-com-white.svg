@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="rain-alt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:42;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<path id="secondary" class="st0" d="M200,566.7l-33.3,66.7 M333.3,566.7L266.7,700 M466.7,566.7l-33.3,66.7 M600,566.7L533.3,700"/>
+<path id="primary" class="st0" d="M700,300c0,73.6-59.7,133.3-133.3,133.3H200c-55.2,0.4-100.3-44-100.7-99.2s44-100.3,99.2-100.7
+	c12.8-0.1,25.6,2.3,37.5,7c15.1-90.8,100.9-152.2,191.7-137.2c43.6,7.2,82.6,31.5,108.3,67.5c10-2.5,20.3-3.8,30.7-4
+	C640.3,166.7,700,226.4,700,300z"/>
+</svg>
